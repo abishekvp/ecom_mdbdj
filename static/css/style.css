@@ -1,0 +1,50 @@
+body{
+    background: #151515;
+    /* text-align: center; */
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+input[type=submit]{
+    width: fit-content;
+}
+a{
+    color: white;
+    text-decoration: underline;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+}
+.product{
+    display: flex;
+    margin-bottom: 20px;
+    width: 35%;
+}
+.product-image{
+    margin: auto;
+}
+.product-image img{
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
+/* h1{
+    font-size: 30px;
+}
+a{
+    color: #fff;
+}
+form input[type=submit]{
+    width: 50%;
+    margin: 0 25%;
+}
+.signout_btn{
+    position: absolute;
+    right: 5%;
+} */

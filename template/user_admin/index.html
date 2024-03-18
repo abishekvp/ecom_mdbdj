@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Admin{% endblock title %}
+{% block base %}
+<section>
+    <h1>Admin Page</h1>
+    <nav>
+        <ul>
+            <a href="/user-admin/profile"><li>Profile</li></a>
+            <a href="/user-admin/clients"><li>Clients</li></a>
+            <a href="/user-admin/create-product"><li>Create Product</li></a>
+            <a href="/user-admin/view-products"><li>View Products</li></a>
+            <a href="/signout"><li>SignOut</li></a>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</section>
+{% endblock %}

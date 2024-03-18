@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}SignUp{% endblock title %}
+{% block sign %}
+<style>
+    
+</style>
+<section class="signup">
+    <h1>SignUp</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="user">
+            <input type="radio" name="role" id="per_user" value="per_user">
+            User
+        </label>
+        <label for="plumber">
+            <input type="radio" name="role" id="plumber" value="plumber">
+            Plumber
+        </label>
+        <label for="prime">
+            <input type="radio" name="role" id="Prime" value="prime">
+            Prime
+        </label>
+        <br>
+        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <input type="password" name="c-password" id="c-password" placeholder="Confirm Password">
+        <input type="submit" value="Submit">
+    </form>
+    Already have an account? then <a href="signin">SignIn</a>
+</section>
+{% endblock %}

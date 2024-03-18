@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login
 from user_admin.models import AdminProduct as Product
 from django.contrib.auth.models import User
 
@@ -41,5 +42,6 @@ def edit_profile(request):
         user.email = email
         user.set_password(password)
         user.save()
-        return redirect('per_user-profile')
+        login(request, user)
+        return redirect("auth_user")
     return render(request, 'per_user/editprofile.html', {'user': request.user})

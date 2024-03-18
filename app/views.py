@@ -10,13 +10,13 @@ def index(request):
 def auth_user(request):
     if request.user.is_authenticated:
         if request.user.groups.filter(name='user_admin').exists():
-            return redirect('/user-admin/clients')
+            return redirect('clients')
         elif request.user.groups.filter(name='per_user').exists():
-            return redirect('/per_user/profile')
+            return redirect('per_user-profile')
         elif request.user.groups.filter(name='plumber').exists():
-            return redirect('plumber/profile')
+            return redirect('plumber-profile')
         elif request.user.groups.filter(name='prime').exists():
-            return redirect('prime/profile')
+            return redirect('prime-profile')
               
     else:return redirect('signin')
 
@@ -56,15 +56,19 @@ def signin(request):
         username = request.POST["username"]
         password = request.POST["password"]
         if '@' in username:username = User.objects.get(email=username).username
-        user = authenticate(request, username=username, password=password)
-        if user and User.objects.get(username=username).is_active:
-            login(request, user)
-            return redirect("auth_user")
-        elif User.objects.get(username=username).is_active==False:
-            messages.info(request, 'User need to be Approved')
-            return redirect("signin")
+        if User.objects.filter(username=username).exists():
+            user = authenticate(request, username=username, password=password)
+            if user and User.objects.get(username=username).is_active:
+                login(request, user)
+                return redirect("auth_user")
+            elif User.objects.get(username=username).is_active==False:
+                messages.info(request, 'User need to be Approved')
+                return redirect("signin")
+            else:
+                messages.info(request, 'Invalid User Credential')
+                return redirect("signin")
         else:
-            messages.info(request, 'Invalid User Credential')
+            messages.info(request, 'User Not Found')
             return redirect("signin")
     else:return render(request,'account/signin.html')
 
@@ -77,7 +81,6 @@ def error(request):
 
 def test(request):
     return render(request, 'test.html')
-
 
 def delete_account(request):
     if request.user.is_authenticated and not request.user.is_superuser:

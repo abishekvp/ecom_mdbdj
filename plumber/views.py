@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from user_admin.models import AdminProduct as Product
 from django.contrib.auth.models import User
@@ -30,12 +31,17 @@ def profile(request):
 def edit_profile(request):
     if request.method == 'POST':
         username = request.POST['username']
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
         email = request.POST['email']
         password = request.POST['password']
         user = User.objects.get(email=request.user.email)
         user.username = username
+        user.first_name = firstname
+        user.last_name = lastname
         user.email = email
         user.set_password(password)
         user.save()
-        return redirect('plumber-profile')
+        login(request, user)
+        return redirect("auth_user")
     return render(request, 'plumber/editprofile.html', {'user': request.user})

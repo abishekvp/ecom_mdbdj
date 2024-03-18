@@ -36,12 +36,13 @@ def edit_profile(request):
         email = request.POST['email']
         password = request.POST['password']
         user = User.objects.get(email=request.user.email)
-        user.username = username
-        user.first_name = firstname
-        user.last_name = lastname
-        user.email = email
-        user.set_password(password)
+        
+        if username:user.username = username
+        if firstname:user.first_name = firstname
+        if lastname:user.last_name = lastname
+        if email:user.email = email
+        if password:user.set_password(password)
         user.save()
-        login(request, user)
-        return redirect('prime-profile')
+        if password:login(request, user)
+        return redirect("auth_user")
     return render(request, 'prime/editprofile.html', {'user': request.user})

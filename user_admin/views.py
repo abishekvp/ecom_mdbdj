@@ -1,5 +1,6 @@
 import parser
 from django.shortcuts import render, redirect
+from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from .models import AdminProduct as Product
@@ -156,13 +157,6 @@ def edit_profile(request):
         user.email = email
         user.set_password(password)
         user.save()
+        login(request, user)
         return redirect('user-admin-profile')
     return render(request, 'user_admin/editprofile.html', {'user': request.user})
-
-def delete_account(request):
-    if request.user.is_authenticated:
-        user = User.objects.get(email=request.user.email)
-        user.delete()
-        return redirect('signin')
-    else:
-        return redirect('signin')

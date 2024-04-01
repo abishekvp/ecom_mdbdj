@@ -1,21 +1,8 @@
-Note:   &::  -it's a comment
+to run
+python manage.py runserver
 
-- install python
 
-given below commands all work in windows command prompt
-
-only on initial deployment,
-follow commands in cmd as in project location
-
->pip install virtualenv &::to install python package for creating virtual environment <br/>
->python -m venv env  &::to create virtual environment <br/>
->env\scripts\activate  &::to activating virtual environment <br/>
->pip install -r requirements.txt  &::to install requirements on virtual environment <br/>
->python manage.py runserver  &::to run server <br/>
-
-to deactivate the environment
->env\scripts\deactivate
-
-for regular host - locally
->env\scripts\activate  &::only if environment is not activated <br/>
->python manage.py runserver  &::to host project
+to push to github
+git add .
+git commit -m "msg"
+git push -u origin main

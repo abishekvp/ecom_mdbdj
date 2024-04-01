@@ -49,8 +49,8 @@ def view_products(request):
             for j in range(len(features)):
                 features[j] = features[j].strip()
             products[i].pro_features = features
-        for i in products:
-            print(i.pro_features)
+        # for i in products:
+        #     print(i.pro_features)
         return render(request, 'user_admin/viewproduct.html', {'products': products})
     else:
         return redirect('signin')
@@ -138,7 +138,6 @@ def remove_user(request,email):
 
 def profile(request):
     if request.user.is_authenticated:
-        print(request.user.is_staff)
         return render(request, 'user_admin/profile.html', {'user': request.user})
     else:
         return redirect('signin')

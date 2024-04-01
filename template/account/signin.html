@@ -1,14 +1,113 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}SignIn{% endblock title %}
 {% block sign %}
-<section class="signin">
-    <h1>SignIn</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="text" name="username" id="username" placeholder="Username or Email">
-        <input type="password" name="password" id="password" placeholder="Password">
-        <input type="submit" value="SignIn">
-    </form>
-    Don't have an account? then <a href="signup">SignUp</a>
+<style>
+   
+    body{
+        margin:0;
+        padding:0;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+        background: #310c75;
+        color: black; 
+        text-align: center;
+
+        
+    }
+    a{
+        color: blue;
+        text-decoration: underline;
+    }
+    section{
+        display: flex;
+        flex-wrap: wrap;
+        height:100vh;
+        width: 100%;
+        top:0;
+        left: 0;
+    }
+    .signin-left{
+
+        width: 40%;
+        color: white;
+
+        
+    }
+    .signin-left h1{
+        font-size: 50px;
+        margin:5% 10% ;
+        text-align: left;
+    }
+    .signin-left img{
+        width: 30%;
+        margin: 30% 35% 5% 35% ;
+
+        
+        
+    }
+    
+    
+    .signin{
+        padding-top: 10%;
+        text-align: center;
+        align-items: center;
+        width:60%;
+        height:100% ;
+        background: white;
+        border-radius:20px 0px 0px 20px;
+    }
+    .signin form{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #username{
+        border:none;
+        background:transparent;
+        border-bottom:1px solid rgb(24, 23, 23);
+        padding:10px;
+        margin-bottom: 15px;
+
+    }
+    #password{ border:none;
+        background:transparent;
+        border-bottom:1px solid rgb(24, 23, 23);
+        padding:10px;
+        margin-bottom: 15px;
+    }
+    .signin input[type=submit]{
+        background-color: skyblue;
+        color:white;
+        width:20%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        }
+   
+    
+</style>
+<section >
+    <div class="signin-left">
+        <h1>Modern Interior Design Studio</h1>
+        <img src="{% static 'img/django-python-logo.png' %}" alt="">
+        <span>@daatstudios</span>
+    </div>
+    <div class="signin">
+        
+        <h1>SignIn</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="Username or Email">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="submit" value="SignIn">
+        </form>
+        <p>Don't have an account? then <a href="signup">SignUp</a></p>
+        
+    </div>
 </section>
 {% endblock %}

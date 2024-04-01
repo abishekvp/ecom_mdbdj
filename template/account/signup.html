@@ -1,46 +1,157 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}SignUp{% endblock title %}
 {% block sign %}
 <style>
+    body{
+        margin:0;
+        padding:0;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+        background: #310c75;
+        color: black; 
+        text-align: center;
+
+        
+    }
+    a{
+        color: blue;
+        text-decoration: underline;
+    }
+    section{
+        display: flex;
+        flex-wrap: wrap;
+        height:100vh;
+        width: 100%;
+        top:0;
+        left: 0;
+    }
+    .signin-left{
+
+        width: 40%;
+        color: white;
+
+        
+    }
+    .signin-left h1{
+        font-size: 50px;
+        margin:5% 10% ;
+        text-align: left;
+    }
+    .signin-left img{
+        width: 30%;
+        margin: 30% 35% 5% 35% ;
+
+        
+        
+    }
+    
+    
+    .signin{
+        padding-top: 2%;
+        text-align: center;
+        align-items: center;
+        width:60%;
+        height:100% ;
+        background: white;
+        border-radius:20px 0px 0px 20px;
+    }
+    .signin form{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    input{
+        border:none;
+        background:transparent;
+        border-bottom:1px solid rgb(24, 23, 23);
+        padding:10px;
+        margin-bottom: 15px;
+
+    }
+    
+    
+    .signin input[type=submit]{
+        background-color: skyblue;
+        color:white;
+        width:20%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        }
+        input[type=radio] {
+  appearance: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type=radio]:checked {
+  background-color: #007bff;
+  color: #fff;
+}
+
+input[type=radio]:hover {
+  background-color: #f0f0f0;
+}
+
+input[type=radio]:focus {
+  outline: none;
+}
+   
     
 </style>
 <section class="signup">
-    <h1>SignUp</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        <label for="user">
-            <input type="radio" name="role" id="per_user" value="per_user">
-            User
-        </label>
-        <label for="plumber">
-            <input type="radio" name="role" id="plumber" value="plumber" required>
-            Plumber
-        </label>
-        <label for="prime">
-            <input type="radio" name="role" id="Prime" value="prime" required>
-            Prime
-        </label>
-        <br>
-        <input type="text" name="username" id="username" placeholder="Username" required>
-        <input type="email" name="email" id="email" placeholder="Email" required>
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-        <p id="alert-cp"></p>
-        <script>
-            $(document).ready(function() {
-                $('#confirm_password').on('input', function() {
-                    if ($('#password').val() === $('#confirm_password').val()) {
-                        // Passwords match
-                        $('#alert-cp').text('');
-                    } else {
-                        // Passwords do not match
-                        $('#alert-cp').text('Password do not match').css('color', 'red');
-                    }
+    <div class="signin-left">
+        <h1>Modern Interior Design Studio</h1>
+        <img src="{% static 'img/django-python-logo.png' %}" alt="">
+        <span>@daatstudios</span>  
+    </div>
+    <div class="signin">
+        <h1>SignUp</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="user">
+                <input type="radio" name="role" id="per_user" value="per_user">
+                User
+            </label>
+            <label for="plumber">
+                <input type="radio" name="role" id="plumber" value="plumber" required>
+                Plumber
+            </label>
+            <label for="prime">
+                <input type="radio" name="role" id="Prime" value="prime" required>
+                Prime
+            </label>
+            <br>
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+            <p id="alert-cp"></p>
+            <script>
+                $(document).ready(function() {
+                    $('#confirm_password').on('input', function() {
+                        if ($('#password').val() === $('#confirm_password').val()) {
+                            // Passwords match
+                            $('#alert-cp').text('');
+                        } else {
+                            // Passwords do not match
+                            $('#alert-cp').text('Password do not match').css('color', 'red');
+                        }
+                    });
                 });
-            });
-        </script>
-        <input type="submit" value="Submit">
-    </form>
-    Already have an account? then <a href="signin">SignIn</a>
+            </script>
+            <input type="submit" value="Submit">
+        </form>
+        Already have an account? then <a href="signin">SignIn</a>
+     
+    </div>
 </section>
 {% endblock %}

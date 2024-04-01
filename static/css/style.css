@@ -3,6 +3,7 @@ body{
     /* text-align: center; */
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
 }
 form{
     display: flex;

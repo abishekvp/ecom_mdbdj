@@ -60,6 +60,9 @@ def edit_product(request,pc):
         if request.method == 'POST':
             name = request.POST['pro_name']
             price = request.POST['pro_price']
+            pro_price_per_user = request.POST['pro_price_per_user']
+            pro_price_prime = request.POST['pro_price_prime']
+            pro_price_plumber = request.POST['pro_price_plumber']
             code = request.POST['pro_code']
             description = request.POST['pro_description']
             range = request.POST['pro_range']
@@ -73,6 +76,9 @@ def edit_product(request,pc):
             product.pro_code = code
             product.pro_name = name
             product.pro_price = price
+            product.pro_price_per_user = pro_price_per_user
+            product.pro_price_prime = pro_price_prime
+            product.pro_price_plumber = pro_price_plumber
             product.pro_description = description
             product.pro_image = img
             product.pro_range = range

@@ -1,8 +1,9 @@
 {% extends 'user_admin/index.html' %}
 {% block title %}Admin | View Product{% endblock title %}
 {% block content %}
+<section class="view-products">
     <h1>Product List</h1>
-    <section class="products">
+    <div class="all-products">
         {% for product in products %}
         <div class="product">
             <div class="product-image">
@@ -38,5 +39,6 @@
             </div>
         </div>
         {% endfor %}
-    </section>
+    </div>
+</section>
 {% endblock %}

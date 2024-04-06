@@ -10,18 +10,27 @@
 
     <label for="pro_price">Product Price:
         <input type="number" id="pro_price" name="pro_price" value="{{product.pro_price}}"><br>
-        <input type="number" id="pro_price_per_user" name="pro_price_per_user" value="{{product.pro_price_per_user}}"><br>
-        <input type="number" id="pro_price_prime" name="pro_price_prime" value="{{product.pro_price_prime}}"><br>
-        <input type="number" id="pro_price_plumber" name="pro_price_plumber" value="{{product.pro_price_plumber}}"><br>
     </label>
-
-    <label for="pro_description">Product Description:
-        <textarea id="pro_description" name="pro_description">{{product.pro_description}}</textarea><br>
+    <label for="pro_price_per_user">
+        Product Price for User:
+        <input type="number" id="pro_price_per_user" name="pro_price_per_user" value="{{product.pro_price_per_user}}"><br>
+    </label>
+    <label for="pro_price_prime">
+        Product Price for Prime:
+        <input type="number" id="pro_price_prime" name="pro_price_prime" value="{{product.pro_price_prime}}"><br>
+    </label>
+    <label for="pro_price_plumber">
+        Product Price for Plumber:
+        <input type="number" id="pro_price_plumber" name="pro_price_plumber" value="{{product.pro_price_plumber}}"><br>
     </label>
 
     <label for="pro_image">Product Image:
         <img style="width: 100px;" src="data:image/jpeg;base64,{{ product.pro_image }}" alt="Product Image">
         <input type="file" id="pro_image" name="pro_image" accept="image/*"><br>
+    </label>
+    
+    <label for="pro_description">Product Description:
+        <textarea id="pro_description" rows="5" cols="30" name="pro_description">{{product.pro_description}}</textarea><br>
     </label>
 
     <label for="pro_code">Product Code:
@@ -33,7 +42,7 @@
     </label>
 
     <label for="pro_features">Product Features:
-        <textarea id="pro_features" name="pro_features">{{product.pro_features}}</textarea><br>
+        <textarea id="pro_features" rows="5" cols="30" name="pro_features">{{product.pro_features}}</textarea><br>
     </label>
 
     <input type="submit" value="Update">

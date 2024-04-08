@@ -19,9 +19,6 @@ class AdminProduct(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at")
 
-
-    def __str__(self):
-        return self.pro_code
     
 class User(AbstractUser):
     username = models.CharField(max_length=150, unique=True)

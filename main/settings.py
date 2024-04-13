@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
 
@@ -94,6 +94,9 @@ DATABASES = {
         'PASSWORD': '4CltfQpECW',
         'HOST': 'sql6.freesqldatabase.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'autocommit': True,
+        },
     }
 }
 
@@ -133,14 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'static','app'),
-    os.path.join(BASE_DIR, 'static','user_admin'),
-    os.path.join(BASE_DIR, 'static','per_user'),
-    os.path.join(BASE_DIR, 'static','plumber'),
-    os.path.join(BASE_DIR, 'static','prime'),
+    os.path.join(BASE_DIR, 'static')
 ]
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

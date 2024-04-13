@@ -4,8 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.models import User, Group
 
 def index(request):
-    if request.user.is_authenticated:return redirect("auth_user")
-    else:return redirect('signin')
+    print('index running')
+    if request.user.is_authenticated:
+        return redirect("auth_user")
+    else:
+        print('redirecting')
+        return redirect('signin')
 
 def auth_user(request):
     if request.user.is_authenticated:
@@ -52,7 +56,7 @@ def signup(request):
 def signin(request):
     if request.user.is_authenticated:
         return redirect("auth_user")
-    elif request.method == 'POST':    
+    elif request.method == 'POST':
         username = request.POST["username"]
         password = request.POST["password"]
         if '@' in username:username = User.objects.get(email=username).username

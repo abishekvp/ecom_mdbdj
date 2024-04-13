@@ -1,21 +1,21 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 from app.views import delete_account
 
 urlpatterns = [
-    url('', views.index, name='user-admin'),
-    url('create-product', views.create_product, name='create-product'),
-    url('view-products', views.view_products, name='view-products'),
-    url('edit-product/<str:pc>/', views.edit_product, name='edit-product'),
-    url('delete-product/<str:pc>/', views.delete_product, name='delete-product'),
+    path('', views.index, name='user-admin'),
+    path('create-product', views.create_product, name='create-product'),
+    path('view-products', views.view_products, name='view-products'),
+    path('edit-product/<str:pc>/', views.edit_product, name='edit-product'),
+    path('delete-product/<str:pc>/', views.delete_product, name='delete-product'),
     
-    url('clients', views.clients, name='clients'),
-    url('approve-user/<str:email>/', views.approve_user, name='approve-user'),
-    url('revoke-user/<str:email>/', views.revoke_user, name='revoke-user'),
-    url('remove-user/<str:email>/', views.remove_user, name='remove-user'),
+    path('clients', views.clients, name='clients'),
+    path('approve-user/<str:email>/', views.approve_user, name='approve-user'),
+    path('revoke-user/<str:email>/', views.revoke_user, name='revoke-user'),
+    path('remove-user/<str:email>/', views.remove_user, name='remove-user'),
     
-    url('profile', views.profile, name='user-admin-profile'),
-    url('edit-profile', views.edit_profile, name='user-admin-edit-profile'),
+    path('profile', views.profile, name='user-admin-profile'),
+    path('edit-profile', views.edit_profile, name='user-admin-edit-profile'),
     
-    url('delete-account', delete_account, name='delete-account'),
+    path('delete-account', delete_account, name='delete-account'),
 ]
